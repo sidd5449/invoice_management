@@ -6,7 +6,8 @@ import express from 'express';
 import generateInvoiceRoute from './routes/generateInvoiceRoute.js';
 import getInvoiceRoute from './routes/getInvoiceRoute.js';
 import registerUserRoute from './routes/registerUserRoute.js';
-import payInvoiceRoute from './routes/payInvoiceRoute.js';
+import updateStatusRoute from './routes/updateStatusRoute.js'
+
 
 dotenv.config();
 const app = express();
@@ -17,9 +18,9 @@ app.use(cors());
 
 // ROUTES
 app.use('/generateInvoice', generateInvoiceRoute);
-app.use('/getInvoice/', getInvoiceRoute);
+app.use('/getInvoice', getInvoiceRoute);
 app.use('/registerUser', registerUserRoute);
-app.use('/payInvoice', payInvoiceRoute);
+app.use('/updateStatus', updateStatusRoute);
 
 const PORT = process.env.PORT || 6001;
 mongoose.connect(process.env.MONGO_URI, {

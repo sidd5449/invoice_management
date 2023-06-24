@@ -36,6 +36,9 @@ const invoiceModel = new mongoose.Schema(
         genDate: {
             type: String,
             required: true,
+        },
+        rp_url: {
+            type: String,
         }
 
     },{timestamps:true}
