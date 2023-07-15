@@ -11,12 +11,24 @@ const invoiceModel = new mongoose.Schema(
             required: true,
         },
         from: {
-            type: Number,
+            type: String,
             required: true,
         },
         to:{
-            type: Number,
-            required: true,
+            type: String,
+            // required: true,
+        },
+        clientBusiness:{
+            type: String,
+            // required: true,
+        },
+        clientPhone:{
+            type: String,
+            // required: true,
+        },
+        clientEmail:{
+            type: String,
+            // required: true,
         },
         elements:[
             {
@@ -29,6 +41,14 @@ const invoiceModel = new mongoose.Schema(
             type: Boolean,
             default: false,
         },
+        statusByClient: {
+            type: Boolean,
+            default: false,
+        },
+        finStatus:{
+            type: Boolean,
+            default: false,
+        },
         toDate: {
             type: String,
             required: true,
@@ -37,7 +57,7 @@ const invoiceModel = new mongoose.Schema(
             type: String,
             required: true,
         },
-        rp_url: {
+        receipt: {
             type: String,
         }
 

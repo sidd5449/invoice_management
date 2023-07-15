@@ -1,0 +1,32 @@
+.app__navbar{
+    padding: 3vh 4vw;
+    display: flex;
+    justify-content: space-between;
+    width: 92vw;
+    align-items: center;
+
+    h2{
+        font-weight: 800;
+        font-size: 1.4vw;
+    }
+    button{
+        width: 8vw;
+        height: 6vh;
+        border: none;
+        background-color: #e8e8e8;
+        border-radius: 4vh;
+        font-weight: 500;
+        color: black;
+    }
+}
+
+.app__navbar-mid{
+    display: flex;
+    gap: 2vw;
+
+    a{
+        font-weight: 500;
+    }
+
+    
+}

@@ -1,0 +1,19 @@
+.app__sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 3vw;
+    padding: 3vw 1vw;
+    height: 65vh;
+    align-items: center;
+    background: linear-gradient(135deg, #3B0000, #060038);
+    justify-content: space-between;
+    border-radius: 1vh;
+    position: fixed;
+
+}
+.app__sidebar-top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4vh;
+}

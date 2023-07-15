@@ -1,0 +1,62 @@
+.app__generateInvoice{
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+.app__generateInvoice-wrapper{
+    display: flex;
+    padding: 2vw;
+    gap: 4vw;
+    
+}
+.app__generateInvoice-main{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    gap: 6vh;
+    padding-left: 10vw;
+}
+.app__invoice-addItems, .app__invoice-clientDetails, .app__invoice-validity{
+    display: flex;
+    flex-direction: column;
+    gap: 4vw;
+}
+.first_input{
+    width: 20vw;
+}
+.app__generateInvoice-display{
+    background: var(--primary-col);
+    height: fit-content;
+    padding: 2vw;
+    border-radius: 1vh;
+    width: 24vw;
+}
+.app__display-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+.app__display-cards{
+    display: flex;
+    flex-direction: column;
+
+    p{
+        color: #fff;
+    }
+
+}
+.product-title{
+    p{
+        font-size: 1vw;
+    }
+}
+.info{
+    display: flex;
+    gap: 2vw;
+
+    p{
+        font-size: 0.9vw;
+    }
+}

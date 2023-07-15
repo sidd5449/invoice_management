@@ -15,20 +15,26 @@ export const createCustomer = async(name, contact, email) => {
     return customer;
 }
 
-export const createStandardPaymentLink = async(amount, customer) => {
-    instance.paymentLink.create({
-        amount: amount*100,
-        currency: 'USD',
-        accept_partial: false,
-        // description: description
-        customer: customer,
-        notify:{
-            sms: true,
-            email: true,
-        },
-        callback_url: 'https://google.com',
-        callback_method: 'get',
-        
+export const createStandardPaymentLink = async(amount, name, email, phNo, description) => {
+            const link = instance.paymentLink.create({
+                amount: amount*100,
+                currency: 'USD',
+                accept_partial: false,
+                description: description,
+                customer: {
+                    name: name,
+                    email: email,
+                    contact: phNo, 
 
-    })
+                },
+                notify:{
+                    sms: true,
+                    email: true,
+                },
+                callback_url: 'https://google.com',
+                callback_method: 'get',
+            })
+    
+            return link;
+    
 }

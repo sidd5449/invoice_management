@@ -7,6 +7,7 @@ import generateInvoiceRoute from './routes/generateInvoiceRoute.js';
 import getInvoiceRoute from './routes/getInvoiceRoute.js';
 import registerUserRoute from './routes/registerUserRoute.js';
 import updateStatusRoute from './routes/updateStatusRoute.js'
+import updateStatusFromClientRoute from './routes/updateStatusFromClientRoute.js'
 
 
 dotenv.config();
@@ -21,6 +22,8 @@ app.use('/generateInvoice', generateInvoiceRoute);
 app.use('/getInvoice', getInvoiceRoute);
 app.use('/registerUser', registerUserRoute);
 app.use('/updateStatus', updateStatusRoute);
+app.use('/updateStatusFromClient', updateStatusFromClientRoute);
+
 
 const PORT = process.env.PORT || 6001;
 mongoose.connect(process.env.MONGO_URI, {
