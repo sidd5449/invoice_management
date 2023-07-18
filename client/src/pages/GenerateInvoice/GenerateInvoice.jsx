@@ -4,6 +4,7 @@ import axios from 'axios';
 import './GenerateInvoice.scss';
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import { toast } from 'react-toastify';
 
 const GenerateInvoice = () => {
   const [name, setname] = useState('');
@@ -49,8 +50,16 @@ const GenerateInvoice = () => {
       }
 
     ]
-    axios.post('http://localhost:8080/generateInvoice', invoiceData).catch((err) => {
-      console.log(err.response.data.message)
+    axios.post('http://localhost:8080/generateInvoice', invoiceData).then(() => {
+      toast.success("Invoice Created!!", {
+        position: toast.POSITION.TOP_RIGHT
+      })
+      window.location.href = `/invoice/${id}`;
+    }).catch((error) => {
+      toast.error("Please fill all the fields and ensure network connectivity", {
+        position: toast.POSITION.TOP_RIGHT
+      })
+      
     })
   }
 
@@ -63,19 +72,19 @@ const GenerateInvoice = () => {
           <div className="app__invoice-addItems">
             <h1>Add Items</h1>
             <div className="app__inputs">
-              <input type="text" placeholder='Product Name' className='first_input'/>
-              <input type="number" placeholder='Price'/>
-              <input type="number" placeholder='Quantity'/>
+              <input type="text" placeholder='Product Name' className='first_input'onChange={(e) => {setname(e.target.value)}}/>
+              <input type="number" placeholder='Price'onChange={(e) => {setprice(e.target.value)}}/>
+              <input type="number" placeholder='Quantity'onChange={(e) => {setquantity(e.target.value)}}/>
             </div>
             <button onClick={addToArray}>ADD ITEM</button>
           </div>
           <div className="app__invoice-clientDetails">
             <h1>Client Details</h1>
             <div className="app__inputs">
-              <input type="text" placeholder='Client Name' className='first_input'/>
-              <input type="text" placeholder='Business Name' className='first_input'/>
-              <input type="text" placeholder='Email Address' className='first_input'/>
-              <input type="text" placeholder='Phone Number'/>
+              <input type="text" placeholder='Client Name' className='first_input'onChange={(e) => {setclientName(e.target.value)}}/>
+              <input type="text" placeholder='Business Name' className='first_input'onChange={(e) => {setclientBusinessName(e.target.value)}}/>
+              <input type="text" placeholder='Email Address' className='first_input'onChange={(e) => {setclientEmail(e.target.value)}}/>
+              <input type="text" placeholder='Phone Number'onChange={(e) => {setclientPhone(e.target.value)}}/>
             </div>
           </div>
           <div className="app__invoice-validity">
@@ -83,7 +92,7 @@ const GenerateInvoice = () => {
             <div className="app__invoice-validity-picker">
               <p>This invoice is valid till the following date:</p>
               <div className="app__inputs">
-                <input type="date" name="date"/>
+                <input type="date" name="date"onChange={(e) => {setinvoiceDate(e.target.value)}}/>
               </div>
             </div>
           </div>

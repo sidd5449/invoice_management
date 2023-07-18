@@ -19,7 +19,7 @@ app.use(cors());
 
 // ROUTES
 app.use('/generateInvoice', generateInvoiceRoute);
-app.use('/getInvoice', getInvoiceRoute);
+app.use('/getInvoice/', getInvoiceRoute);
 app.use('/registerUser', registerUserRoute);
 app.use('/updateStatus', updateStatusRoute);
 app.use('/updateStatusFromClient', updateStatusFromClientRoute);

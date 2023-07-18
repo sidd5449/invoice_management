@@ -1,0 +1,50 @@
+.app__invoice-main-item{
+    display: flex;
+    flex-direction: column;
+
+}
+.item-info{
+    display: flex;
+    gap: 4vw;
+    
+}
+
+#price{
+    font-weight: 600;
+    font-size: 1.8vw;
+    margin-top: 3vh;
+}
+hr{
+    margin-top: 2vh;
+}
+.app__invoice-main-payee{
+    h2{
+        font-weight: 500;
+    }
+}
+#submit{
+    background: var(--primary-col)!important;
+}
+.app__invoice-card{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(45deg, #3B0000, #060038);
+    height: 20vh;
+    // align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 6vw;
+    
+    p{
+        color: #fff;
+    }
+    .app__card-details{
+        display: flex;
+        align-items: baseline;
+        gap: 1vw;
+    }
+}
+.card-price{
+    font-weight: 600;
+    font-size: 2vw;
+}
