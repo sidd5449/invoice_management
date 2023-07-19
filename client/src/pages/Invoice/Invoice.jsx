@@ -5,6 +5,7 @@ import './Invoice.scss';
 import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import Card from '../../components/Card/Card';
 
 
 
@@ -61,13 +62,7 @@ const Invoice = () => {
           </div>
           <button className='submit-btn' id='submit'>SEND INVOICE TO CLIENT</button>
         </div>
-        <div className="app__invoice-card">
-          <p>Total:</p>
-          <div className="app__card-details">
-            <p className='card-price'>USD {sum} |</p>
-            <p>{pieces} items</p>
-          </div>
-        </div>
+        <Card sum={sum} pieces = {pieces}/>
       </div>
     </div>
   )}

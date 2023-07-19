@@ -25,26 +25,3 @@ hr{
 #submit{
     background: var(--primary-col)!important;
 }
-.app__invoice-card{
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(45deg, #3B0000, #060038);
-    height: 20vh;
-    // align-items: center;
-    justify-content: center;
-    position: fixed;
-    right: 6vw;
-    
-    p{
-        color: #fff;
-    }
-    .app__card-details{
-        display: flex;
-        align-items: baseline;
-        gap: 1vw;
-    }
-}
-.card-price{
-    font-weight: 600;
-    font-size: 2vw;
-}

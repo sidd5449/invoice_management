@@ -6,6 +6,7 @@ import Landing from './pages/Landing/Landing';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import Invoice from './pages/Invoice/Invoice';
+import InvoiceToClient from './pages/InvoiceToClient/InvoiceToClient';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/generateInvoice' element={<GenerateInvoice />} />
         <Route path='/auth' element={<Auth />} />
         <Route path='/invoice/:id' element={<Invoice />} />
+        <Route path='/view/invoice/:id' element={<InvoiceToClient />} />
       </Routes>
       <ToastContainer theme='dark' />
     </div>
