@@ -9,6 +9,9 @@ body{
     box-sizing: border-box;
     overflow-x: hidden;
 }
+::-webkit-scrollbar{
+    display: none;
+}
 html{
     scroll-behavior: smooth;
 }
@@ -52,6 +55,7 @@ button{
     border-radius: 20vh;
     font-weight: 400;
     max-width: fit-content;
+    cursor: pointer;
 }
 .submit-btn{
     padding: 2.5vh 2vw;

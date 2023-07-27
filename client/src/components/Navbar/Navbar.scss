@@ -1,9 +1,13 @@
 .app__navbar{
-    padding: 3vh 4vw;
+    padding: 2vh 4vw;
     display: flex;
     justify-content: space-between;
     width: 92vw;
     align-items: center;
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    box-shadow: 0 4px 10px #e2e2e2;
 
     h2{
         font-weight: 800;

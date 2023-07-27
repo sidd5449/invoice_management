@@ -11,6 +11,7 @@ import getInvoiceRoute from './routes/getInvoiceRoute.js';
 import registerUserRoute from './routes/registerUserRoute.js';
 import updateStatusRoute from './routes/updateStatusRoute.js'
 import updateStatusFromClientRoute from './routes/updateStatusFromClientRoute.js'
+import { receiptController } from "./controllers/receiptController.js";
 
 
 
@@ -22,12 +23,12 @@ app.use(express.json());
 app.use(bodyParser.json({limit: "30mb", extended:true}))
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
 app.use(cors());
-app.use('/receipts', express.static(path.join(__dirname, 'public/receipts')))
+app.use('/public/assets', express.static(path.join(__dirname, 'public/assets')))
 
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb){
-        cb(null, 'public/assets');
+        cb(null, "public/assets");
     },
     filename: function(req, file, cb){
         cb(null, file.originalname);
@@ -45,7 +46,7 @@ app.use('/updateStatusFromClient', updateStatusFromClientRoute);
 app.patch('/uploadReceipt', upload.single('receipt'), receiptController);
 
 
-const PORT = process.env.PORT || 6001;
+const PORT = process.env.PORT;
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser:true,
     useUnifiedTopology: true,

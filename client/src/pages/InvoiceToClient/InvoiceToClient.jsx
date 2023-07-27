@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import './InvoiceToClient.scss';
 import '../Invoice/Invoice.scss';
 import '../GenerateInvoice/GenerateInvoice.scss';
@@ -12,8 +13,10 @@ import Card from '../../components/Card/Card';
 const InvoiceToClient = () => {
     const [invoice, setinvoice] = useState([]);
     const [loading, setloading] = useState(true);
+    const [receipt, setreceipt] = useState();
     const invoiceId = useParams();
     console.log(invoiceId.id)
+    console.log(receipt);
 
     useEffect(() => {
         axios.get(`http://localhost:8080/getInvoice/${invoiceId.id}`).then((data) => {
@@ -21,7 +24,19 @@ const InvoiceToClient = () => {
           setloading(false);
           console.log(invoice);
         })
-      })
+    })
+
+    const uploadReceipt = () => {
+        const formdata = new FormData();
+        formdata.append('id', invoiceId.id);
+        formdata.append('receipt', receipt);
+        axios.patch('http://localhost:8080/uploadReceipt', formdata).then(() => {
+            toast.success("Receipt Uploaded! We will notify you once the invoice is marked as paid", {
+                position: toast.POSITION.TOP_RIGHT
+            })
+        })
+    }
+
     if (loading) {
         return (<h1>Loading</h1>)
     }
@@ -65,7 +80,8 @@ const InvoiceToClient = () => {
                                 <p>Email: {invoice[0].clientEmail}</p>
                             </div>
                         </div>
-                        <button className='submit-btn' id='submit'>SEND INVOICE TO CLIENT</button>
+                        <input type="file"  placeholder='Upload Receipt' onChange={(e) => {setreceipt(e.target.files[0])}}/>
+                        <button className='submit-btn' id='submit' onClick={uploadReceipt}>SEND INVOICE TO CLIENT</button>
                     </div>
                     <Card sum={sum} pieces = {pieces}/>
                 </div>

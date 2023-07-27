@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import '../GenerateInvoice/GenerateInvoice.scss';
 import './Invoice.scss';
 import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Card from '../../components/Card/Card';
+import ReviewComp from '../../components/ReviewComp/ReviewComp';
 
 
 
@@ -17,6 +18,9 @@ const Invoice = () => {
   
 
   const {id} = useParams();
+  const location = useLocation();
+  const isReviewing = new URLSearchParams(location.search).get("review");
+  console.log(isReviewing);
   console.log(id);
   useEffect(() => {
     axios.get(`http://localhost:8080/getInvoice/${id}`).then((data) => {
@@ -30,6 +34,7 @@ const Invoice = () => {
   }
   else{
     const items = invoice[0].elements;
+    const fileUrl = invoice[0].receipt;
     let sum = 0;
     let pieces=items.length;
     for(let i=0; i<items.length; i++){
@@ -60,7 +65,7 @@ const Invoice = () => {
             <p>Phone Number: {invoice[0].clientPhone}</p>
             <p>Email: {invoice[0].clientEmail}</p>
           </div>
-          <button className='submit-btn' id='submit'>SEND INVOICE TO CLIENT</button>
+          {(isReviewing.toString()==='false')?(<button className='submit-btn' id='submit'>SEND INVOICE TO CLIENT</button>):(<ReviewComp id={id} file={fileUrl} />)}
         </div>
         <Card sum={sum} pieces = {pieces}/>
       </div>

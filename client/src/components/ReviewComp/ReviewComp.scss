@@ -1,0 +1,16 @@
+.app__reviewComp{
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+.app__reviewComp-agreement{
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+
+    input{
+        width: 1vw;
+        height: 1vw;
+        
+    }
+}
