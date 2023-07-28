@@ -7,7 +7,6 @@ const Landing = () => {
   return (
     <div className="app__landing">
         <Navbar />
-        <Sidebar />
         <Footer />
     </div>
   )

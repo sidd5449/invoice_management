@@ -7,12 +7,14 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import Invoice from './pages/Invoice/Invoice';
 import InvoiceToClient from './pages/InvoiceToClient/InvoiceToClient';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Landing />} />
+        <Route path='/:userId/dashboard' element={<Dashboard />} />
         <Route path='/generateInvoice' element={<GenerateInvoice />} />
         <Route path='/auth' element={<Auth />} />
         <Route path='/invoice/:id/' element={<Invoice />} />
