@@ -10,6 +10,7 @@ import generateInvoiceRoute from './routes/generateInvoiceRoute.js';
 import getInvoiceRoute from './routes/getInvoiceRoute.js';
 import registerUserRoute from './routes/registerUserRoute.js';
 import updateStatusRoute from './routes/updateStatusRoute.js'
+import loginRoute from './routes/loginRoute.js'
 import updateStatusFromClientRoute from './routes/updateStatusFromClientRoute.js'
 import { receiptController } from "./controllers/receiptController.js";
 
@@ -43,6 +44,7 @@ app.use('/getInvoice/', getInvoiceRoute);
 app.use('/registerUser', registerUserRoute);
 app.use('/updateStatus', updateStatusRoute);
 app.use('/updateStatusFromClient', updateStatusFromClientRoute);
+app.use('/login', loginRoute);
 app.patch('/uploadReceipt', upload.single('receipt'), receiptController);
 
 

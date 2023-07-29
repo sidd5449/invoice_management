@@ -1,17 +1,19 @@
 import userSchema from "../models/userSchema.js";
-import { createCustomer } from "../utils/utils.js";
+import { v4 as uuidv4 } from 'uuid';
 
 export const registerUser = async(req, res) => {
     try {
-        const {name, email, phoneNo, businessName, address} = req.query;
-
+        const {name, email, phoneNo, businessName, address, password} = req.body;
+        const uniqueId = uuidv4();
         // console.log(customer);
         const newUserData = {
+            id: uniqueId,
             name,
             email, 
             phoneNo, 
             businessName, 
             address, 
+            password
         };
         const newUser = new userSchema(newUserData);
         await newUser.save();

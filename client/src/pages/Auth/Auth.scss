@@ -1,0 +1,46 @@
+.app__auth{
+    display: flex;
+}
+.app__auth-left{
+    padding: 2vh 4vw;
+    height: 96vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40vw;
+    gap: 4vh;
+    color: #fff;
+    border-radius: 0 2vh 2vh 0;
+    box-shadow: 4px 4px 10px #363636;
+
+    p{
+        font-weight: 200;
+    }
+    h2{
+        font-weight: 800;
+        font-size: 1.4vw;
+        position: absolute;
+        top: 2vh;
+    }
+}
+.app__auth-right{
+    display: flex;
+    padding: 2vh 8vw;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12vh;
+}
+
+.app__auth-right-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 6vh;
+    
+    input{
+        width: 30vw;
+    }
+}
+
+.quote{
+    font-size: 3vw;
+}
