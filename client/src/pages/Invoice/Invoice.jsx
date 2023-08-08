@@ -3,6 +3,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import '../GenerateInvoice/GenerateInvoice.scss';
 import './Invoice.scss';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Card from '../../components/Card/Card';
@@ -14,6 +15,7 @@ const Invoice = () => {
 
   const [invoice, setinvoice] = useState([]);
   const [loading, setloading] = useState(true);
+  const userId = useSelector((state) => state.user);
 
   
 
@@ -32,7 +34,7 @@ const Invoice = () => {
   if(loading){
     return (<h2>Loading...</h2>)
   }
-  else{
+  else if(invoice[0].from === userId){
     const items = invoice[0].elements;
     const fileUrl = invoice[0].receipt;
     let sum = 0;
@@ -41,6 +43,7 @@ const Invoice = () => {
       sum+=(items[i].price * items[i].pieces);
     }
   // console.log(items);
+  // if(invoice[0].from === id){
   return (
     <div className="app__invoice">
       <Navbar />
@@ -71,6 +74,9 @@ const Invoice = () => {
       </div>
     </div>
   )}
+  else{
+    return(<p>You are not authorised to review this section.</p>)
+  }
 }
 
 export default Invoice
