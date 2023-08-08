@@ -28,7 +28,7 @@ const Invoice = () => {
       setloading(false);
       console.log(invoice);
     })
-  })
+  },[])
   if(loading){
     return (<h2>Loading...</h2>)
   }
@@ -65,7 +65,7 @@ const Invoice = () => {
             <p>Phone Number: {invoice[0].clientPhone}</p>
             <p>Email: {invoice[0].clientEmail}</p>
           </div>
-          {(isReviewing.toString()==='false')?(<button className='submit-btn' id='submit'>SEND INVOICE TO CLIENT</button>):(<ReviewComp id={id} file={fileUrl} />)}
+          {(isReviewing==='false')?(<button className='submit-btn' id='submit'>SEND INVOICE TO CLIENT</button>):(<ReviewComp id={id} file={fileUrl} />)}
         </div>
         <Card sum={sum} pieces = {pieces}/>
       </div>

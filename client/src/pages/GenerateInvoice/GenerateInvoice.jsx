@@ -5,6 +5,7 @@ import './GenerateInvoice.scss';
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { toast } from 'react-toastify';
+import { useLocation } from 'react-router-dom';
 
 const GenerateInvoice = () => {
   const [name, setname] = useState('');
@@ -18,6 +19,8 @@ const GenerateInvoice = () => {
   const [arr, setarr] = useState([]);
   console.log(arr)
 
+  const location = useLocation();
+  const { uId } = location.state;
   const userId = '1230';
   // console.log(name, price, quantity);
   // TODO
@@ -37,7 +40,7 @@ const GenerateInvoice = () => {
     const invoiceData = [
       {
         id: id,
-        from: userId,
+        from: uId,
         to: clientName,
         clientBusiness: clientBusinessName,
         clientPhone: clientPhone,
@@ -54,7 +57,7 @@ const GenerateInvoice = () => {
       toast.success("Invoice Created!!", {
         position: toast.POSITION.TOP_RIGHT
       })
-      window.location.href = `/invoice/${id}`;
+      window.location.href = `/invoice/${id}/?review=false`;
     }).catch((error) => {
       toast.error("Please fill all the fields and ensure network connectivity", {
         position: toast.POSITION.TOP_RIGHT

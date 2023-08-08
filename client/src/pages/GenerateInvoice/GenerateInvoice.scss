@@ -1,17 +1,17 @@
-.app__generateInvoice, .app__invoice, .app__invoiceToClient{
+.app__generateInvoice, .app__invoice, .app__invoiceToClient, .app__dashboard{
     display: flex;
     flex-direction: column;
     
 
 }
 
-.app__generateInvoice-wrapper, .app__invoice-wrapper, .app__invoiceToClient-wrapper{
+.app__generateInvoice-wrapper, .app__invoice-wrapper, .app__invoiceToClient-wrapper, .app__dashboard-wrapper{
     display: flex;
     padding: 2vw;
     gap: 4vw;
     
 }
-.app__generateInvoice-main, .app__invoice-main, .app__invoiceToClient-main{
+.app__generateInvoice-main, .app__invoice-main, .app__invoiceToClient-main, .app__dashboard-main{
     width: 50vw;
     display: flex;
     flex-direction: column;

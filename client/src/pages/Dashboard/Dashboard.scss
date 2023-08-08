@@ -1,0 +1,14 @@
+.app__dashboard-invoiceList{
+    display: flex;
+    flex-direction: column;
+    gap: 6vh;
+
+}
+.app__invoice-item{
+    display: flex;
+    width: 60vw;
+    justify-content: space-between;
+    padding: 2vw;
+    border-radius: 2vh;
+    background-color: #F2F2F2;
+}

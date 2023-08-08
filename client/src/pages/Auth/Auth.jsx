@@ -3,6 +3,10 @@ import { useLocation } from 'react-router-dom';
 import './Auth.scss';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { setAuth } from '../../state';
+// import { returnUser, setUserInfo } from '../../utils/userOps';
+
 
 const Auth = () => {
 
@@ -14,7 +18,7 @@ const Auth = () => {
   const [phone, setphone] = useState();
   const [address, setaddress] = useState();
   const [businessName, setbusinessName] = useState();
-
+  const dispatch = useDispatch();
   // console.log(email, businessName, phone);
 
   const loginInputs = [
@@ -114,7 +118,13 @@ const Auth = () => {
       toast.success(msgStr, {
         position: toast.POSITION.TOP_RIGHT
       })
-      window.location.href = `/generateInvoice`;
+      axios.get(`http://localhost:8080/getUserId/${email}`).then((data) => {
+        // setUserInfo(data);
+        console.log(data.data);
+        dispatch(setAuth({user:data.data}))
+        window.location.href = `/${data.data}/dashboard`;
+      })
+      
     }).catch((error) => {
       toast.error("Please check the credentials!", {
         position: toast.POSITION.TOP_RIGHT
