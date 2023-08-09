@@ -15,6 +15,8 @@ import updateStatusFromClientRoute from './routes/updateStatusFromClientRoute.js
 import getIdRoute from './routes/getIdRoute.js'
 import invoiceByUserRoute from './routes/invoiceByUserRoute.js'
 import getUserByIdRoute from './routes/getUserByIdRoute.js'
+import sendMailRoute from './routes/sendMailRoute.js'
+import sendInvoiceRoute from './routes/sendInvoiceRoute.js'
 import { receiptController } from "./controllers/receiptController.js";
 
 
@@ -51,6 +53,8 @@ app.use('/login', loginRoute);
 app.use('/getUserId', getIdRoute);
 app.use('/invoices', invoiceByUserRoute);
 app.use('/user', getUserByIdRoute);
+app.use('/sendMail', sendMailRoute);
+app.use('/sendInvoice', sendInvoiceRoute);
 app.patch('/uploadReceipt', upload.single('receipt'), receiptController);
 
 
