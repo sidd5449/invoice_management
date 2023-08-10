@@ -9,6 +9,7 @@ import Invoice from './pages/Invoice/Invoice';
 import InvoiceToClient from './pages/InvoiceToClient/InvoiceToClient';
 import Dashboard from './pages/Dashboard/Dashboard';
 import { useSelector } from 'react-redux';
+import InvoicePreview from './pages/InvoicePreview/InvoicePreview';
 
 function App() {
   const isAuth = Boolean(useSelector((state) => state.user))
@@ -16,6 +17,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<Landing />} />
+        <Route path='/preview' element={<InvoicePreview />} />
         <Route path='/:userId/dashboard' element={isAuth ? <Dashboard />: <Navigate to="/auth/?registered=false" />} />
         <Route path='/generateInvoice' element={isAuth ? <GenerateInvoice />: <Navigate to="/auth/?registered=false" />} />
         <Route path='/auth' element={<Auth />} />
