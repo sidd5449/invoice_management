@@ -27,8 +27,15 @@ const InvoicePreview = () => {
         </div>
         <div className="app__invoice-items">
             <div className="headings">
-                <h2>Sr No.</h2>
-                <h2>Item</h2>
+                <h2 className='row'>Sr No.</h2>
+                <h2 className='row-long'>Item</h2>
+                <h2>Price</h2>
+                <h2>Quantity</h2>
+                <h2>Total</h2>
+            </div>
+            <div className="table-contents">
+            <h2 className='row'>Sr No.</h2>
+                <h2 className='row-long'>Item</h2>
                 <h2>Price</h2>
                 <h2>Quantity</h2>
                 <h2>Total</h2>

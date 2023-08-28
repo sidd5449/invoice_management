@@ -41,10 +41,19 @@
 .app__invoice-items{
     margin-top: 60px;
 }
-.headings{
+.headings, .table-contents{
     width: 100%;
+    margin-top: 8px;
     display: flex;
     gap: 30px;
+}
+.table-contents h2{
+    font-weight: 400;
+}
+
+.row-long{
+    width: 60%;
+    flex-wrap: wrap;
 }
 .app__invoice-payments{
     width: 100%;

@@ -24,12 +24,12 @@ export const sendMail = (clientMail, sender, invoiceId) => {
         }
     })
 }
-export const sendInvoice = (clientMail, sender) => {
+export const sendInvoice = (clientMail, sender, file) => {
     const mailOptions = {
         from: 'sureinvoicemailer@gmail.com',
         to: clientMail,
         subject: `Invoice from ${sender}`,
-        html: `<p>Invoice</p>`
+        attachment: file,
     }
     transporter.sendMail(mailOptions, function(err, info){
         if(err){
