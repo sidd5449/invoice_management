@@ -8,6 +8,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Card from '../../components/Card/Card';
 import ReviewComp from '../../components/ReviewComp/ReviewComp';
+import { toast } from 'react-toastify';
 
 
 
@@ -42,6 +43,23 @@ const Invoice = () => {
     for(let i=0; i<items.length; i++){
       sum+=(items[i].price * items[i].pieces);
     }
+
+    const sendMail = () => {
+      const formData = {
+        clientMail: invoice[0].clientEmail,
+        sender: invoice[0].from,
+        invoiceId: invoice[0].id,
+      }
+      axios.post('http://localhost:8080/sendMail', formData).then(() => {
+        toast.success("Invoice Mailed", {
+          position: toast.POSITION.TOP_RIGHT
+        })
+      }).catch((error) => {
+        toast.error("Please fill all fields and ensure network connectivity", {
+          position: toast.POSITION.TOP_RIGHT
+        })
+      })
+    }
   // console.log(items);
   // if(invoice[0].from === id){
   return (
@@ -68,7 +86,7 @@ const Invoice = () => {
             <p>Phone Number: {invoice[0].clientPhone}</p>
             <p>Email: {invoice[0].clientEmail}</p>
           </div>
-          {(isReviewing==='false')?(<button className='submit-btn' id='submit'>SEND INVOICE TO CLIENT</button>):(<ReviewComp id={id} file={fileUrl} />)}
+          {(isReviewing==='false')?(<button className='submit-btn' id='submit' onClick={sendMail}>SEND INVOICE TO CLIENT</button>):(<ReviewComp id={id} file={fileUrl} />)}
         </div>
         <Card sum={sum} pieces = {pieces}/>
       </div>

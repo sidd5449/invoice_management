@@ -3,6 +3,6 @@ import { sendInvoiceController } from '../controllers/sendInvoiceController.js';
 
 const router = express.Router();
 
-router.get('/', sendInvoiceController);
+router.post('/', sendInvoiceController);
 
 export default router;

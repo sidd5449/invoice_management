@@ -38,7 +38,15 @@ const Landing = () => {
           </div>
           <div className="app__landing-subs">
             <h1>Subscriptions</h1>
-            
+            <div className="subscription-cards">
+              <div className="card"></div>
+              <div className="card-main card"></div>
+              <div className="card"></div>
+            </div>
+          </div>
+          <div className="app__landing-contact">
+            <h1>We'd like to hear from you!!</h1>
+            <button style={{backgroundColor: '#003B02'}}>CONTACT US</button>
           </div>
         </div>
       </div>

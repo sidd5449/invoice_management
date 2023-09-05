@@ -67,3 +67,39 @@
         margin-right: 4vw;
     }
 }
+.app__landing-subs{
+    display: flex;
+    flex-direction: column;
+    margin-top: 14vh;
+}
+.subscription-cards{
+    display: flex;
+    padding: 8vw 8vw;
+    justify-content: space-between;
+    align-items: center;
+}
+.card{
+    width: 18vw;
+    height: 24vw;
+    border-radius: 2vh;
+    background-color: #E8E8E8;
+}
+.card-main{
+    background: linear-gradient(-45deg, #FD8486, #8C7EFB);
+    width: 22vw;
+    height: 28vw;
+}
+.app__landing-contact{
+    width: 92vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary-col);
+    padding: 8vw 0;
+    border-radius: 2vh;
+    gap: 2vw;
+
+    h1{
+        color: #fff;
+    }
+}

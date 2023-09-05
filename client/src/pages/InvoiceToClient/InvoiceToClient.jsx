@@ -89,7 +89,7 @@ const InvoiceToClient = () => {
                             </div>
                         </div>
                         <input type="file"  placeholder='Upload Receipt' onChange={(e) => {setreceipt(e.target.files[0])}}/>
-                        <button className='submit-btn' id='submit' onClick={uploadReceipt}>SEND INVOICE TO CLIENT</button>
+                        <button className='submit-btn' id='submit' onClick={uploadReceipt}>SEND RECEIPT</button>
                     </div>
                     <Card sum={sum} pieces = {pieces}/>
                 </div>

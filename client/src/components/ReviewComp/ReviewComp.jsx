@@ -5,8 +5,12 @@ import { toast } from 'react-toastify';
 
 const ReviewComp = (props) => {
 
+  const id = [
+    {id: props.id}
+  ]
   const handleVerify = () => {
     axios.patch(`http://localhost:8080/updateStatus/${props.id}`).then(() => {
+      axios.post('http://localhost:8080/sendInvoice', id)
       toast.success("Marked as Paid!!", {
         position: toast.POSITION.TOP_RIGHT
       })

@@ -29,7 +29,12 @@ export const sendInvoice = (clientMail, sender, file) => {
         from: 'sureinvoicemailer@gmail.com',
         to: clientMail,
         subject: `Invoice from ${sender}`,
-        attachment: file,
+        attachments: [
+            {
+                filename: `${file}.pdf`,
+                path: `./public/receipts/${file}.pdf`,
+            }
+        ],
     }
     transporter.sendMail(mailOptions, function(err, info){
         if(err){
