@@ -17,10 +17,10 @@ const Dashboard = () => {
   const [loading, setloading] = useState(true);
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/user/${userId}`).then((data) => {
+    axios.get(`${process.env.REACT_APP_SERVER_ADD}/user/${userId}`).then((data) => {
       setuser(data.data);
     })
-    axios.get(`http://localhost:8080/invoices/${userId}`).then((items) => {
+    axios.get(`${process.env.REACT_APP_SERVER_ADD}/invoices/${userId}`).then((items) => {
       setuserInvoices(items.data);
       
     })

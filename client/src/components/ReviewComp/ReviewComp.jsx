@@ -9,8 +9,8 @@ const ReviewComp = (props) => {
     {id: props.id}
   ]
   const handleVerify = () => {
-    axios.patch(`http://localhost:8080/updateStatus/${props.id}`).then(() => {
-      axios.post('http://localhost:8080/sendInvoice', id)
+    axios.patch(`${process.env.REACT_APP_SERVER_ADD}/updateStatus/${props.id}`).then(() => {
+      axios.post(`${process.env.REACT_APP_SERVER_ADD}/sendInvoice`, id)
       toast.success("Marked as Paid!!", {
         position: toast.POSITION.TOP_RIGHT
       })
@@ -23,7 +23,7 @@ const ReviewComp = (props) => {
 
   return (
     <div className="app__reviewComp">
-      <a href={`http://localhost:8080/${props.file}`} target='blank'><button>DOWNLOAD RECEIPT ATTACHED BY CLIENT</button></a>
+      <a href={`${process.env.REACT_APP_SERVER_ADD}/${props.file}`} target='blank'><button>DOWNLOAD RECEIPT ATTACHED BY CLIENT</button></a>
       <div className="app__reviewComp-agreement">
         <input type="checkbox" required/>
         <p>I've verified the receipt and agree that the client has paid the invoice.</p>

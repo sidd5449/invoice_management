@@ -101,7 +101,7 @@ const Auth = () => {
     title = "Login";
     msgStr = 'Successfully Logged In!!'
     formData = loginData;
-    urlStr = 'http://localhost:8080/login';
+    urlStr = `${process.env.REACT_APP_SERVER_ADD}/login`;
   }
   else{
     quote = "Sign up now and discover a new way of INVOICING!";
@@ -110,7 +110,7 @@ const Auth = () => {
     title = "Sign Up";
     msgStr = 'Successfully Signed Up!!'
     formData = signupData;
-    urlStr = 'http://localhost:8080/registerUser';
+    urlStr = `${process.env.REACT_APP_SERVER_ADD}/registerUser`;
   }
 
   const handleSubmit = () => {
@@ -118,7 +118,7 @@ const Auth = () => {
       toast.success(msgStr, {
         position: toast.POSITION.TOP_RIGHT
       })
-      axios.get(`http://localhost:8080/getUserId/${email}`).then((data) => {
+      axios.get(`${process.env.REACT_APP_SERVER_ADD}/getUserId/${email}`).then((data) => {
         // setUserInfo(data);
         console.log(data.data);
         dispatch(setAuth({user:data.data}))

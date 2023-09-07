@@ -21,9 +21,9 @@ const InvoiceToClient = () => {
     console.log(invoice);
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/getInvoice/${invoiceId.id}`).then((data) => {
+        axios.get(`${process.env.REACT_APP_SERVER_ADD}/getInvoice/${invoiceId.id}`).then((data) => {
           setinvoice(data.data);
-          axios.get(`http://localhost:8080/user/${invoice[0].from}`).then((data) => {
+          axios.get(`${process.env.REACT_APP_SERVER_ADD}/user/${invoice[0].from}`).then((data) => {
             setuser(data.data);
         })
         })
@@ -38,7 +38,7 @@ const InvoiceToClient = () => {
         const formdata = new FormData();
         formdata.append('id', invoiceId.id);
         formdata.append('receipt', receipt);
-        axios.patch('http://localhost:8080/uploadReceipt', formdata).then(() => {
+        axios.patch(`${process.env.REACT_APP_SERVER_ADD}/uploadReceipt`, formdata).then(() => {
             toast.success("Receipt Uploaded! We will notify you once the invoice is marked as paid", {
                 position: toast.POSITION.TOP_RIGHT
             })

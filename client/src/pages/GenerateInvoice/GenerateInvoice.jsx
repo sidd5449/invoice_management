@@ -53,7 +53,7 @@ const GenerateInvoice = () => {
       }
 
     ]
-    axios.post('http://localhost:8080/generateInvoice', invoiceData).then(() => {
+    axios.post(`${process.env.REACT_APP_SERVER_ADD}/generateInvoice`, invoiceData).then(() => {
       toast.success("Invoice Created!!", {
         position: toast.POSITION.TOP_RIGHT
       })

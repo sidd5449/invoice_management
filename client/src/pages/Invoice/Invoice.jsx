@@ -26,7 +26,7 @@ const Invoice = () => {
   console.log(isReviewing);
   console.log(id);
   useEffect(() => {
-    axios.get(`http://localhost:8080/getInvoice/${id}`).then((data) => {
+    axios.get(`${process.env.REACT_APP_SERVER_ADD}/getInvoice/${id}`).then((data) => {
       setinvoice(data.data);
       setloading(false);
       console.log(invoice);
@@ -50,7 +50,7 @@ const Invoice = () => {
         sender: invoice[0].from,
         invoiceId: invoice[0].id,
       }
-      axios.post('http://localhost:8080/sendMail', formData).then(() => {
+      axios.post(`${process.env.REACT_APP_SERVER_ADD}/sendMail`, formData).then(() => {
         toast.success("Invoice Mailed", {
           position: toast.POSITION.TOP_RIGHT
         })
