@@ -55,6 +55,7 @@ const Invoice = () => {
           position: toast.POSITION.TOP_RIGHT
         })
       }).catch((error) => {
+        console.log(error);
         toast.error("Please fill all fields and ensure network connectivity", {
           position: toast.POSITION.TOP_RIGHT
         })

@@ -37,6 +37,7 @@ export const sendInvoiceController = async(req, res) => {
         //     res.send(Promise.resolve());
         // })
         sendInvoice(invoice[0].clientEmail, sender[0].name, id.id);
+        sendInvoice(sender[0].email, sender[0].name, id.id);
 
 
         res.status(200).json('Successful')

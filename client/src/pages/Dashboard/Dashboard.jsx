@@ -33,13 +33,13 @@ const Dashboard = () => {
 
   
   const statusText = (status, clientStatus, final) => {
-    if(final===false && clientStatus === false){
+    if(status===false && clientStatus === false){
       return 'Unpaid';
     }
-    else if(final===false && clientStatus === true){  
+    else if(status===false && clientStatus === true){  
       return 'View Receipt';
     }
-    else if(final === true){
+    else if(status === true){
       return 'Paid';
     }
   }

@@ -16,7 +16,7 @@ const Landing = () => {
             <div className="app__titles-info">
               <p>Generate beautiful invoices with specialised QR codes to receive payment. Get seamless payment status tracking and invoice management all in one tool!</p>
               <div className="titles-info-btns">
-                <a href="/auth/?registered:false"><button>SIGNUP</button></a>
+                <a href="/auth/?registered=false"><button>SIGNUP</button></a>
                 <a href="/">Read More</a>
               </div>
             </div>

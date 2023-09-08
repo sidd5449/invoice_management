@@ -19,6 +19,7 @@ import sendMailRoute from './routes/sendMailRoute.js'
 import sendInvoiceRoute from './routes/sendInvoiceRoute.js'
 import pingRoute from './routes/pingRoute.js'
 import { receiptController } from "./controllers/receiptController.js";
+import invoiceSchema from "./models/invoiceSchema.js";
 
 
 
@@ -68,4 +69,5 @@ mongoose.connect(process.env.MONGO_URI, {
 
 }).then(() => {
     app.listen(PORT, () => console.log(`SERVER RUNNING ON PORT ${PORT}`));
+    // test.invoiceSchema.deleteMany();
 }).catch((error) => console.log(`${error} did not connect`))
