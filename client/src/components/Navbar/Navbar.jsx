@@ -10,7 +10,7 @@ const Navbar = () => {
             <a href="">Contact Us</a>
         </div>
         <div className="app__navbar-right">
-            <a href="auth/registered=true"><button>Login</button></a>
+            <a href="auth/?registered=true"><button>Login</button></a>
         </div>
     </div>
   )

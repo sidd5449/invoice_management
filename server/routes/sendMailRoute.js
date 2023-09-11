@@ -3,6 +3,6 @@ import { sendMailController } from '../controllers/sendMailController.js';
 
 const router = express.Router();
 
-router.get('/', sendMailController);
+router.post('/', sendMailController);
 
 export default router;

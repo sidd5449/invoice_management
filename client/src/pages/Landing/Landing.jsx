@@ -12,9 +12,9 @@ const Landing = () => {
       <div className="app__landing">
         <div className="app__landing-main">
           <div className="app__landing-titles">
-            <h1>Effortless Invoicing, Instant Payments - Integrated Solutions for Quick Transactions</h1>
+            <h1>Effortless Invoicing, Instant Payments - Integrated Solutions for Efficient Management</h1>
             <div className="app__titles-info">
-              <p>Generate beautiful invoices with specialised QR codes to receive payment. Get seamless payment status tracking and invoice management all in one tool!</p>
+              <p>Generate beautiful invoices with a clean template. Get seamless payment status tracking and invoice management all in one tool!</p>
               <div className="titles-info-btns">
                 <a href="/auth/?registered=false"><button>SIGNUP</button></a>
                 <a href="/">Read More</a>
