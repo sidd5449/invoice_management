@@ -254,7 +254,7 @@ export const mailTemplate = (id, from) => {
       
                                     <div
                                       style="font-size: 14px; line-height: 140%; text-align: center; word-wrap: break-word;">
-                                      <a href="http://localhost:3000/view/invoice/${id}" target="_blank"><p style="line-height: 140%;">http://localhost:3000/view/invoice/${id}</p></a>
+                                      <a href="http://sureinvoice.netlify.app/view/invoice/${id}" target="_blank"><p style="line-height: 140%;">http://sureinvoice.netlify.app/view/invoice/${id}</p></a>
                                     </div>
       
                                   </td>
